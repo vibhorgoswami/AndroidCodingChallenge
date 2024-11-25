@@ -1,3 +1,7 @@
 <resources>
 	<string name="app_name">AndroidOTChallenge</string>
+
+	<string name="accessibility_text_book_image">This is an image of %1$s</string>
+	<string name="error_message">No books available</string>
+	<string name="accessibility_error_image_description">Error icon</string>
 </resources>

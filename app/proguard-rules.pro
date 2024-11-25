@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Obfuscate BuildConfig fields
+-keepclassmembers class **.BuildConfig {
+    public static final java.lang.String API_KEY;
+}
