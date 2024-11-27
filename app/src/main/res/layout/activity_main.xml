@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/main"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	android:layout_height="match_parent">
 
-	<TextView
+	<!-- SwipeRefreshLayout to handle pull-to-refresh -->
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+		android:id="@+id/swipeRefreshLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<!-- RecyclerView to show the list of books -->
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/recyclerView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="@dimen/book_list_margin"
+			android:layout_marginBottom="@dimen/book_list_margin"
+			android:scrollbars="vertical"
+			tools:listitem="@layout/item_book_card" />
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	<!-- Empty state layout -->
+	<LinearLayout
+		android:id="@+id/emptyStateLayout"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Hello World!"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:visibility="gone"
+		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="UseCompoundDrawables">
+
+		<!-- Error image -->
+		<ImageView
+			android:id="@+id/errorImage"
+			android:layout_width="144dp"
+			android:layout_height="144dp"
+			android:src="@drawable/ic_error_color_error_144dp"
+			android:contentDescription="@string/accessibility_error_image_description"
+			android:layout_marginBottom="16dp" />
+
+		<!-- Error message -->
+		<TextView
+			android:id="@+id/errorText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/error_message"
+			android:textSize="16sp"
+			android:textColor="@color/gray"
+			android:gravity="center" />
+	</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
