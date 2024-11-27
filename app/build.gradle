@@ -30,9 +30,10 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            buildConfigField "String", "API_KEY", "\"${apiKey}\""
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Provide actual signing key
+            signingConfig signingConfigs.debug
         }
     }
     buildTypes.each {
@@ -81,5 +82,4 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
     androidTestImplementation libs.androidx.espresso.contrib
-
 }

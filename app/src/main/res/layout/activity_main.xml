@@ -19,6 +19,8 @@
 			android:id="@+id/recyclerView"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
+			android:layout_marginTop="@dimen/book_list_margin"
+			android:layout_marginBottom="@dimen/book_list_margin"
 			android:scrollbars="vertical"
 			tools:listitem="@layout/item_book_card" />
 	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
